@@ -7,214 +7,214 @@
 </p>
 
 <p align="center">
-  🚀 | YAML驱动的WhatsApp商业自动化工具 | CLI优先 | 零学习成本
+  🚀 | YAML-driven WhatsApp Business Automation | CLI-first | Zero Learning Curve
 </p>
 
 ---
 
-## 🎯 项目介绍
+## 🎯 Introduction
 
-**wapi** 是一个面向开发者和企业的WhatsApp Business自动化CLI工具。通过YAML配置文件驱动，实现消息发送、联系人管理、群发自动化、定时任务等功能的命令行操作。
+**wapi** is a powerful WhatsApp Business automation CLI tool designed for developers and businesses. Using YAML configuration files as the driving force, it enables command-line operations for message sending, contact management, mass broadcasting, scheduled tasks, and more.
 
-### 🔥 核心价值
+### 🔥 Core Value
 
-- **💬 YAML配置化消息发送** - 告别重复劳动，一键批量发送
-- **👥 智能联系人管理** - 分组、标签、搜索，一应俱全
-- **⏰ 定时任务自动化** - 设定时间，自动执行
-- **🛡️ 防封号策略** - 智能间隔发送，保护账号安全
-- **📊 多格式输出** - Terminal表格/JSON/Markdown，灵活展示
+- **💬 YAML-configured Message Sending** - Say goodbye to repetitive work, batch send with one click
+- **👥 Smart Contact Management** - Groups, tags, and search - all you need
+- **⏰ Automated Scheduled Tasks** - Set it and forget it
+- **🛡️ Anti-ban Strategy** - Intelligent sending intervals to protect your account
+- **📊 Multiple Output Formats** - Terminal table/JSON/Markdown, flexible display
 
-### 💡 灵感来源
+### 💡 Inspiration
 
-项目灵感来源于 WhatsApp CLI 社区创新实践，专注于为开发者提供：
-- 更强大的YAML配置化能力
-- 更完善的联系人管理系统
-- 更智能的防封策略
-- 更灵活的消息模板引擎
-
----
-
-## ✨ 核心特性
-
-| 特性 | 描述 |
-|------|------|
-| 🔐 **WhatsApp Web集成** | 基于Selenium实现，无需额外API |
-| 📝 **YAML消息配置** | 支持变量替换的模板消息 |
-| 👥 **联系人管理** | 分组、标签、导入导出 |
-| 📤 **批量群发** | 支持大规模群发，防封策略 |
-| ⏰ **定时任务** | 每日/间隔/自定义调度 |
-| 📊 **发送日志** | 完整的消息发送记录 |
-| 🎨 **Rich美化输出** | 彩色终端，表格展示 |
+Inspired by WhatsApp CLI community innovations, focusing on providing developers with:
+- More powerful YAML configuration capabilities
+- More complete contact management system
+- Smarter anti-ban strategies
+- More flexible message template engine
 
 ---
 
-## 🚀 快速开始
+## ✨ Features
 
-### 📦 安装
+| Feature | Description |
+|---------|-------------|
+| 🔐 **WhatsApp Web Integration** | Selenium-based, no extra API required |
+| 📝 **YAML Message Config** | Template messages with variable substitution |
+| 👥 **Contact Management** | Groups, tags, import/export |
+| 📤 **Mass Broadcasting** | Large-scale sending with anti-ban strategy |
+| ⏰ **Scheduled Tasks** | Daily/interval/custom scheduling |
+| 📊 **Send Logs** | Complete message sending records |
+| 🎨 **Rich Beautified Output** | Colorful terminal, table display |
+
+---
+
+## 🚀 Quick Start
+
+### 📦 Installation
 
 ```bash
-# 从源码安装
+# Install from source
 git clone https://github.com/gitstq/wapi.git
 cd wapi
 pip install -e .
 
-# 或者直接安装
+# Or install directly
 pip install wapi
 ```
 
-### 🔧 环境要求
+### 🔧 Requirements
 
 - Python 3.8+
-- Chrome/Firefox 浏览器
-- ChromeDriver/GeckoDriver (自动安装)
-- 有效的 WhatsApp 账号
+- Chrome/Firefox browser
+- ChromeDriver/GeckoDriver (auto-installed)
+- Valid WhatsApp account
 
-### 📋 首次配置
+### 📋 Initial Setup
 
 ```bash
-# 初始化配置目录
+# Initialize config directory
 wapi config --init
 ```
 
-### 💬 发送单条消息
+### 💬 Send a Single Message
 
 ```bash
-# 发送消息给联系人
+# Send message to a contact
 wapi send single --to "+8613812345678" --message "Hello from wapi!"
 
-# 使用消息模板
+# Use message template
 wapi send single --to "+8613812345678" --template greeting
 ```
 
-### 📤 批量发送
+### 📤 Batch Sending
 
-创建消息配置文件 `messages.yaml`:
+Create message config file `messages.yaml`:
 
 ```yaml
 messages:
   - to: "+8613812345678"
-    message: "你好，这是一条测试消息"
+    message: "Hello, this is a test message"
   - to: "+8613898765432"
-    message: "Hello from wapi!"
+    message: "Greetings from wapi!"
 ```
 
-执行批量发送:
+Execute batch sending:
 
 ```bash
-# 预览模式
+# Preview mode
 wapi send batch --file messages.yaml --dry-run
 
-# 实际发送
+# Actual sending
 wapi send batch --file messages.yaml
 ```
 
 ---
 
-## 📖 详细使用指南
+## 📖 Detailed Usage Guide
 
-### 👥 联系人管理
+### 👥 Contact Management
 
 ```bash
-# 添加联系人
-wapi contact add --name "张三" --phone "+8613812345678" --group "朋友" --tags "重要,工作"
+# Add contact
+wapi contact add --name "John" --phone "+8613812345678" --group "Friends" --tags "Important,Work"
 
-# 查看联系人列表
+# List contacts
 wapi contact list
 
-# 按分组筛选
-wapi contact list --group "朋友"
+# Filter by group
+wapi contact list --group "Friends"
 
-# 按标签筛选
-wapi contact list --tag "重要"
+# Filter by tag
+wapi contact list --tag "Important"
 
-# 删除联系人
+# Delete contact
 wapi contact delete 12345678
 ```
 
-### 📝 消息模板
+### 📝 Message Templates
 
 ```bash
-# 创建模板
-wapi template create --name "问候" --template "你好 {name}！{message}" --description "通用问候模板"
+# Create template
+wapi template create --name "greeting" --template "Hello {name}! {message}" --description "General greeting template"
 
-# 查看所有模板
+# List all templates
 wapi template list
 
-# 使用模板发送
-wapi send single --to "+8613812345678" --message "你好张三！这是模板消息"
+# Send using template
+wapi send single --to "+8613812345678" --message "Hello John! This is a template message"
 ```
 
-### ⏰ 定时任务
+### ⏰ Scheduled Tasks
 
 ```bash
-# 查看定时任务
+# List scheduled tasks
 wapi schedule list
 
-# 立即执行任务
+# Run task immediately
 wapi schedule run 12345678
 ```
 
-### 🔐 WhatsApp 状态检查
+### 🔐 WhatsApp Status Check
 
 ```bash
-# 检查连接状态
+# Check connection status
 wapi status
 ```
 
 ---
 
-## 💡 设计思路
+## 💡 Design Philosophy
 
-### 🎯 设计理念
+### 🎯 Core Principles
 
-1. **CLI优先** - 所有功能通过命令行操作，无需图形界面
-2. **YAML配置驱动** - 复杂任务通过YAML文件定义，简洁高效
-3. **零外部依赖可选** - 核心功能仅需标准库，高级功能按需安装
-4. **防封策略内置** - 自动处理发送间隔，降低账号风险
+1. **CLI-first** - All features operated via command line, no GUI required
+2. **YAML-driven** - Complex tasks defined in YAML files, simple and efficient
+3. **Zero external dependencies (optional)** - Core features only need standard library
+4. **Built-in anti-ban strategy** - Auto-handles sending intervals to reduce account risk
 
-### 🏗️ 技术架构
+### 🏗️ Technical Architecture
 
 ```
 wapi/
-├── cli.py              # Click CLI入口
-├── core/               # 核心功能模块
-│   ├── browser.py      # 浏览器驱动管理
-│   ├── sender.py       # 消息发送核心
-│   ├── contact.py      # 联系人管理
-│   └── scheduler.py    # 定时任务
-├── config/             # 配置模块
-│   └── loader.py       # 配置加载器
-├── templates/          # 消息模板目录
-└── logs/               # 发送日志目录
+├── cli.py              # Click CLI entry point
+├── core/               # Core functionality modules
+│   ├── browser.py      # Browser driver management
+│   ├── sender.py       # Message sending core
+│   ├── contact.py      # Contact management
+│   └── scheduler.py    # Scheduled tasks
+├── config/             # Configuration module
+│   └── loader.py       # Config loader
+├── templates/          # Message template directory
+└── logs/               # Send log directory
 ```
 
-### 🔮 后续迭代计划
+### 🔮 Future Roadmap
 
-- [ ] 支持更多消息类型（图片、文件、视频）
-- [ ] Web界面管理
-- [ ] 多账号支持
-- [ ] 云端同步配置
-- [ ] API服务模式
+- [ ] Support more message types (images, files, videos)
+- [ ] Web interface management
+- [ ] Multi-account support
+- [ ] Cloud sync configuration
+- [ ] API service mode
 
 ---
 
-## 📦 打包与部署
+## 📦 Packaging & Deployment
 
-### 🔨 开发安装
+### 🔨 Development Installation
 
 ```bash
-# 克隆项目
+# Clone project
 git clone https://github.com/gitstq/wapi.git
 cd wapi
 
-# 安装依赖
+# Install dependencies
 pip install -e ".[dev]"
 
-# 运行测试
+# Run tests
 pytest tests/
 ```
 
-### 🐳 Docker部署
+### 🐳 Docker Deployment
 
 ```dockerfile
 FROM python:3.11-slim
@@ -226,7 +226,7 @@ RUN pip install wapi selenium webdriver-manager
 CMD ["wapi", "status"]
 ```
 
-### 📱 跨平台打包
+### 📱 Cross-platform Packaging
 
 ```bash
 # Windows
@@ -238,21 +238,21 @@ pyinstaller --onefile --console wapi/cli.py
 
 ---
 
-## 🤝 贡献指南
+## 🤝 Contributing
 
-欢迎提交Issue和Pull Request！
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-1. Fork 本仓库
-2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 创建Pull Request
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ---
 
-## 📄 开源协议
+## 📄 License
 
-本项目采用 [MIT License](LICENSE) 开源协议。
+This project is licensed under the [MIT License](LICENSE).
 
 ---
 
