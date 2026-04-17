@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wapi"
+version = "1.0.0"
+description = "WhatsApp Business Automation CLI - YAML-driven WhatsApp messaging automation tool"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+authors = [
+    {name = "gitstq", email = "gitstq@users.noreply.github.com"}
+]
+keywords = ["whatsapp", "cli", "automation", "messaging", "business"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "click>=8.0.0",
+    "pyyaml>=6.0",
+    "selenium>=4.0.0",
+    "webdriver-manager>=4.0.0",
+    "rich>=13.0.0",
+    "schedule>=1.2.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+]
+
+[project.scripts]
+wapi = "wapi.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["wapi*"]
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310', 'py311']
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
