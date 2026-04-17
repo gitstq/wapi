@@ -1,6 +1,12 @@
 # wapi - WhatsApp 商務自動化 CLI 工具
 
 <p align="center">
+
+🌐 **語言切換**：[English](README.md) | [简体中文](README_zh-CN.md) | [繁體中文](README_zh-TW.md)
+
+</p>
+
+<p align="center">
   <img src="https://img.shields.io/badge/version-1.0.0-blue.svg" alt="版本">
   <img src="https://img.shields.io/badge/python-3.8+-green.svg" alt="Python">
   <img src="https://img.shields.io/badge/license-MIT-orange.svg" alt="授權">
